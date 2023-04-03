@@ -1,0 +1,73 @@
+.banner{
+ background: var(--azul-degrade);
+ color: var(--branco);
+ text-align: center;
+ padding: 2.5em 2em;
+}
+
+.banner__titulo{
+  font-size: 18px;   
+  font-family: var(--fonte-principal);  
+  font-weight: 700;                                      
+}
+
+.banner_texto{
+   font-family: var(--fonte-principal);
+   font-weight: 500;
+   margin: 1em 0em;
+}
+
+.banner__pesquisa{
+    background-color: transparent;
+    color: var(--branco);
+    border:solid 1px;
+    border-radius: 24px;
+    padding: 1em;
+    width: 100%;
+
+}
+
+.banner__pesquisa::placeholder{
+    font-family: var(--fonte-principal);
+    font-size: 14px;
+    font-weight: 400;     
+    text-align: center;  
+    background: url(../img/Lupa.svg) no-repeat;      
+    background-position: 1em;                                 
+}
+
+
+/*Todas as novas edições apartir da tela de 1024px devem ser editadas aqui*/
+
+  @media screen and (min-width: 1024px) {
+
+    .banner__titulo{                        /*Mudei o tamanho do título Já sabe4 por onde começar*/
+      font-size: 36px;
+    }
+
+    .banner__pesquisa{                    /*Mudei o tamanho da barra de pesquisa, para 50%*/
+      width: 50%;
+    } 
+
+    .banner__pesquisa::placeholder{        /*Mudei a posição da lupinha para mais distante da borda*/    
+      background-position: 7em;
+
+  }
+
+}
+
+@media screen and (min-width: 1728px){
+   
+  .banner__pesquisa{
+    width: 35%;
+  }
+
+  .banner__pesquisa::placeholder{
+    background-position: 10em;             /*alteramos a posição da luneta, para mais perto de (Qual será a sua próxi8ma leitura)*/ 
+  }
+
+
+  .banner{
+    padding: 6em 0;
+  }
+}

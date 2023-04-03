@@ -1,0 +1,319 @@
+.cabecalho__menu-hamburguer {
+     width: 24px;
+     height: 24px;
+     background-image: url("../img/Menu.svg");    
+     background-repeat: no-repeat;
+     background-position: center;
+     display: inline-block;                                   
+}
+
+/*-------------------------------Pseudo-classes e combinador4es-----------------------------*/
+
+.container__botao:checked~.container__rotulo>.cabecalho__menu-hamburguer{ 
+     background-image: url(../img/MenuAberto.svg);
+}
+
+.container__botao:checked~.container__rotulo { 
+     background: var(--azul-degrade); }
+
+/*-------------------------------Pseudo-classes e combinador4es-----------------------------*/
+
+
+
+.cabecalho{
+     background-color: var(--branco);
+     display: flex;
+     justify-content:space-between;
+     align-items: center;
+     position: relative;  /*ajsutar a lista de itens (O position relative, ele libera a opção de você botar outros atributos como top,
+                                                      left, right, bottom que em português é topo, lado direito, lado esquerdo, e embaixo)*/
+     }
+
+
+
+
+.container{
+     display: flex;                     /*display fex, para os itens (icones) dos comtaines das divs criadas*/
+     align-items: center;              /*itens alinhado no teu centro*/
+}
+
+
+.container__imagem{
+     padding: 1em;
+}
+
+.lista-menu{
+     width:  60vw;        /*estende o tamanho ou comprimento lateral do texto*/
+     display: none;       /* a lista deixa de aparecer se não clicar nela, ele desaperece sem retirar o elemento*/
+     position: absolute;  /*E o position absolute, ele permite que você movimente o seu elemento de acordo com outro que veio antes, ou que é o pai, 
+                           que esteja a position diferente de static que é a padrão. Eu queria que ele se movimentasse de acordo com cabeçalho. 
+                           Então para eu mesma movimentar para ele ficar embaixo do cabeçalho*/
+     top:100%               /*com top 100% a lista ficou abaixo 100 por cento do cabeçalho */  
+     
+     
+}
+
+.container__botao:checked ~ .lista-menu {   
+     display: block;
+}
+                                        /*Agora quando eu clico aparece a lista e quando eu clico novamente some com ela. Então, o que aconteceu aqui?
+                                        Isso é bem bacana de entender.
+                                        Então eu botei um .container, no botão, selecionou o input, eu botei :checked, esse checked é uma pseudo classe.
+                                        Então, o que ele faz? Ele detecta se está preenchida aquele input checkbox.
+                                        [06:21] E depois eu botei um acento til, aquilo é chamado combinador CSS. Um combinador CSS desse aqui, do acento til,
+                                        ele vai procurar um outro elemento que vem em seguida daquele de antes, que tem aquela classe que eu botei depois.*/
+                                        /*funciona assim; se o container botão tiver o checked, ele vai procurar outro que venha depois dele,
+                                        que tenha a classe lista menu e vai botar display block nele.
+                                        Se não tivesse com lista menu não ia fazer nada, e também se não tivesse no checked não ia fazer nada.*/
+
+
+/*customizado a lista com espaçamentos e edição das letras e tamnanhos*/
+.lista-menu__titulo,
+.lista-menu__item {
+          padding: 1em;
+          background-color: var(--branco);
+}
+
+
+.lista-menu__titulo{
+     color: var(--laranja);
+     font-weight: 700;
+}
+
+.lista-menu__link{
+     background: var(--azul-degrade);            
+     -webkit-background-clip: text;         /*webkits é para funcionar em outros tipos de navegadores.*/
+     -webkit-text-fill-color: transparent;  /*Tem alguns que são mais chatos com essa questão, então ele já abrange mais opções.*/
+     
+     background-clip: text;                 /*ele vai prender aquela cor de background só onde tem texto*/
+     text-transform: uppercase;             /*aplicação da letra maiuscula*/
+     
+     
+}
+
+.container__botao{
+     display: none; /*tira o chackbox da lista do menú hamburguer, deixando ele ivisivel*/
+}
+
+
+.container__texto{
+     display: none;
+}
+
+
+
+/*____________________________________________________projeto header feito em cima_______________________________________________*/
+
+/*________________________________________________EDIÇÃO DOS DISPLAY AO ALCANCAREM O MODO MOBILE_________________________________*/
+
+
+
+
+     .container__titulo{  /*aqui o titulo ALURA BOOKS desaparece quando alcança a medida de mobile*/
+          display: none;
+     }
+
+     .opções{              /*aqui o titulo ALURA BOOKS desaparece quando alcança a medida de mobile*/
+          display: none;
+     }
+
+     .container__imagem-transparente{
+          display: block;
+     }
+
+     .cabecalho__menu-hamburguer{
+          display: block;
+     }
+     
+     /*______________________________________________projeto header feito em cima_______________________________________________*/
+
+
+
+     /*Todas as novas edições apartir da tela de 1024px devem ser editadas aqui*/
+
+                                             /*editando no sdtylo header o título ALURA BOOKS que aparece em tela de até 1024px em táblets  usamos font Josefin Sans, com (peso) weight: 400 normal e 700 negrito.*/                      
+
+     /*MÉDIA QUERY*/     @media screen and (min-width:1024px)                            
+     { 
+                                                       
+               .container__titulo, 
+               .container__titulo--negrito {
+                    font-family: var(--fonte-secundario);
+                    font-size: 30px;
+               }
+
+               .container__titulo {
+                    font-weight: 400;            /*quando aplicamos o display: block nest atela, ele aprece apartir do atamnaho de 1024px */
+                    display:block;                            
+                    }                                             
+                 
+
+               .container__titulo--negrito{
+                    font-weight: 700;
+               }
+
+               .opções {
+                    display: flex;
+                   
+               }
+
+               .opções__item{
+                    
+                    justify-content: space-between;
+                    padding: 0 .5em;
+                    margin: 2em 0 2em;
+                    
+               }
+
+               .opções__link{
+                    justify-content: space-between;
+                    text-transform: uppercase;
+                    text-decoration:none;
+                    color: var(--preto);
+                    font-weight: 400;
+                    font-size: 16px;
+                    font-style: var(--fonte-principal);
+                    
+               }
+
+               .container__imagem-transparente{
+                    display: none;
+               }
+
+
+               .cabecalho__menu-hamburguer{
+                    display: none;
+               }
+
+               .opções__botão:checked~.lista-menu{       /*Existindo um checkbox a lista aparece no tablet, essas é a forma de escrever*/
+                    display: block; 
+                    width: auto;
+               }
+
+               .opções__botão{      /*botão deo checkbox desaprace, masa lista aparece*/
+                    display: none;
+               }
+        
+          /*-------------------------------Pseudo-classes e combinador4es-----------------------------*/
+          
+               .opções__botão:checked~.opções__rotulo>.opções__item {
+                    background : var(--azul-degrade);
+                    color: var(--branco);
+                    display: block;
+               }    
+ 
+               .opções__item{
+                    padding: 1.5em 2em;
+               }
+               
+               .lista-menu__item:hover{
+                    background: var(--azul-degrade);
+               }
+          
+               .lista-menu__item:hover > .lista-menu__link{
+                    -webkit-text-fill-color: var(--branco);
+                    text-decoration: none;
+
+               }
+
+          /*-------------------------------Pseudo-classes e combinador4es-----------------------------*/     
+     }
+
+     @media screen and (min-width: 1728px)  {
+
+          .container__link{
+               display: flex;
+               align-items: center;
+               text-decoration: none;
+               font-size: 20px;
+               color: var(--preto);
+          }
+
+          .cabecalho{
+               padding: 0 2em;       /*afastamos os intens das paredes do cabeçalho*/
+               
+          }
+
+          .container__texto{
+               display: block;
+
+          }
+
+          .opções{
+               margin-right: auto;   /*Quando usamos o transform flex container, quando colocamos lá dentro uma margem de left, 
+                                        right, bottom se botarmos o valor auto, ele vai tentar preencher todo o espaço que está sobrando.
+                                        Então aqui no caso foi, ele preencheu toda a direita com a margem, então todos os itens foram empurrados
+                                        para a esquerda e isso você pode aplicar em outros projetos, em outros casos que pode acontecer.
+                                        Por isso que eu já estou exemplificando de um modo geral o que aconteceu nesse caso.*/                            
+
+          }
+
+
+
+     }
+
+
+
+     /*------------------------------------------------------------------------------PSEUDO-CLASSE-------------------------------------------------------------------------------------------
+
+     07 Faça como eu fiz: feedback ao usuário
+     PRÓXIMA ATIVIDADE
+     
+     Tendo já aplicado alguns estilos através das pseudo-classes, que tal personalizar seu projeto utilizando alguns dos que foram vistos até agora? Sinta-se à vontade e deixe a imaginação fluir.
+     
+     A seguir, no botão “Opinião do instrutor”, você poderá ver algumas sugestões de aplicações.
+     
+     VER OPINIÃO DO INSTRUTOR
+     Opinião do instrutor
+     
+     Aqui não temos escolhas certas nem erradas, mas que tal colocar uma cor ao passar o mouse nos links do footer? Para isso, selecione a classe deles em conjunto da pseudo-classe :hover e por fim, dentro desse trecho, coloque a cor laranja:
+     
+     .lista-rodapé__link:hover {
+     color: var(--laranja);
+     }COPIAR CÓDIGO
+     Também podemos brincar com a lista de tópicos, que tal ao passar o mouse em cada item da lista ele inverter as cores? Ou seja, a fonte virar laranja e o fundo branco. Comece selecionando a classe .tópicos__link com a pseudo-classe :hover, dentro dela coloque a cor como laranja e a cor de fundo como branco:
+     
+     .tópicos__link:hover {
+     color: var(--laranja);
+     background-color: var(--branco);
+     }COPIAR CÓDIGO
+     Podemos arriscar usar pseudo-classes diferentes, como a active. Uma ideia é aplicar nos botões “Saiba mais” dos cards, selecionando ele pela classe, colocando a pseudo-classe e por fim, configurar para trocar a cor de fundo para azul.
+     
+     .botões__ancora:active {
+     background-color: var(--azul);
+     }COPIAR CÓDIGO
+     Agora, vendo tantas possibilidades, que tal colocar no fórum outras ideias que você teve de aplicação das pseudo-classes no seu projeto? Eu e outros alunos vamos adorar ver. Te vejo por lá!
+     */
+
+
+
+
+     /*********************PSEUDO CLASSES MAIS USADAS*******************************/
+
+/*
+
+Pseudo-classe	Descrição	Exemplo
+:active	     Link que está ativo.	Um link sendo clicado.
+:disabled	     Elemento desativado.	Um input que não pode ser preenchido.
+:focus	     Elemento recebendo foco ao ser selecionado por mouse ou teclado.	Campo de um formulário.
+:link	     Cor dos links.	Tag <a> em geral.
+:visited	     Cor dos links que já foram visitados.	É utilizado em tags <a> mas só aparecem quando já foram clicadas.
+
+*/
+
+/*
+
+Seletor	     Descrição	                                                       Exemplo de uso
+Tag            Escolhe todos elementos que correspondem ao valor fornecido.	section, a, p
+ID	          Seleciona elementos baseado no seu ID        	               #valor-do-id
+Universal	     Seleciona todos os elementos	                                   *
+
+*/
+
+/*
+
+  +	Seleciona elementos que estão logo após o elemento especificado antes do símbolo.	                                   .container__botao + container__rotulo
+  ~	Seleciona elementos que estão após (mas não necessariamente em seguida) o elemento especificado antes do símbolo.   	.container__botao ~ .container__rotulo
+  >	Seleciona elementos que estão dentro do elemento especificado antes do símbolo.	                                        .container__rotulo>.cabeçalho__menu-hamburguer
+
+*/

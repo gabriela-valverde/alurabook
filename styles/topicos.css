@@ -1,0 +1,63 @@
+.tópicos{
+text-align: center;
+background: var(--azul-degrade);
+padding: 1em 0;
+}
+
+.tópicos__título{
+ color: var(--branco);
+ font-weight: 300;
+ padding-bottom: 1em;
+ font-size: 16px;
+ text-transform: uppercase;
+}
+
+.tópicos__lista{     
+ display: flex;  
+ flex-wrap: wrap;   /*Quebra de linha com flex-wrap: wrap ((A propriedade CSS flex-wrap define se os itens flexíveis são forçados a ficarem na mesma linha ou se podem ser quebrados em várias linhas.))*/              
+ justify-content: center;
+}
+
+.tópicos__item{
+ margin: 2em 0.8em;                                                
+}
+
+.tópicos__item-link{     
+ color: var(--branco);  
+ padding: 1em;
+ background-color: var(--laranja);
+ font-size: 12px;
+ font-weight: 700;
+ text-decoration: none;
+ font-size: 14px;
+ font-weight: 700;
+ font-family:var(--fonte-principal);
+}
+
+
+
+/*Todas as novas edições apartir da tela de 1024px devem ser editadas aqui*/
+
+@media screen and (min-width: 1024px) {
+
+ .tópicos__título{
+   font-size: 24px;
+ }                                              
+
+.tópicos__item-link{    
+   font-size: 24px;
+
+ }
+                                                  
+
+
+  .tópicos__lista{
+    display: flex;
+    padding: 2em 30vw 1em 30vw;  /* as laterais estão com 30% por issi o valor 30vw*/
+    margin-bottom: 2em;
+  }
+
+  .tópicos__título{
+    margin-top: 2em;
+  }  
+}

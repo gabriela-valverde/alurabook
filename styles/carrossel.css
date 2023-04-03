@@ -1,0 +1,297 @@
+.carrossel__titulo{
+    color: var(--laranja);
+    background-color: var(--branco);     
+    text-transform: uppercase;    
+    text-align: center; 
+    font-size: 18px;
+    font-weight: 700;
+    padding: 1em 0 1em 0; /*exemplo os ponteitos do relógio*/   
+                                          
+}
+
+.swiper-slide img{
+    width:100%;
+}
+
+   /*para rertirar as setas de vanço do display*/
+.swiper-button-prev, .swiper-button-next {
+    display: none;
+}
+
+.swiper-pagination{
+    position: initial;
+    margin: 0.5em;
+}
+
+/*----------------^^^^^^^^^-------para rertirar as setas de vanço do display-------^^^^^^^^-----------*/
+
+
+
+/*________________________________________Edição do card em folha de stylo ____________________________*/
+.card {  /*edição card inteiro com flebox*/
+    background: var(--branco);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin: 1em;
+    padding: 2em;
+    display: block;
+}
+
+.card__descrição{ /*edição da class card__descrição */
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+
+}
+
+.card__botões{ /*edição da class card__botões */
+    display: flex;
+    justify-content: space-between;
+}
+
+.botões{ /*edição da class botões */
+   display: flex;
+}
+
+.descrição__titulo { /*edição da class descrição__titulo */
+    color: var(--laranja);
+    font-size: 16px;
+    font-weight: 700;
+    font-family: var(--fonte-principal);
+}
+
+.descrição__titulo-livro{  /*edição da class descrição__titulo-livro */
+    color: var(--azul);
+    font-size: 18px;
+    font-weight: 700;
+    font-family: var(--fonte-principal);
+    margin: 0.5em 0;
+}
+
+.discrição__texto{ /*edição da class descrição__texto */
+    font-size: 14px;
+    color: var(--preto);
+    font-weight: 400;
+    font-family: var(--fonte-principal);
+    
+}
+
+.botões__item{ /*edição da class botões__item */
+    margin: .5em;
+  
+}
+
+.botões__ancora{/*edição da class botões__ancora- usamos o ancora por que abrirá iuma nova aba ( Saiba Mais)  */
+    
+    background-color: var(--laranja);
+    font-size: var(--branco);
+    text-decoration: none;
+    padding: 1em 1.8em;    /*edição do botão amarelo*/
+    font-weight: 700;
+    color: var(--branco);
+    font-family: var(--fonte-principal);
+}
+
+.discrição__imagem{ /*edição da class descrição__imagem */
+    width: 160px 160px 160px 160px;
+    padding-bottom: 1em;
+  
+}
+
+
+
+/*_________________________________________Edição do carrossel e card os MAIS VENDIDOS___________________________________________*/
+
+
+
+                                            /***********NOTAS*****************/
+/*Modelo HTML básico do Carrossel simples para uso em outras oportunidades*/
+
+/*              <h2 class="carrossel__titulo">MAIS VENDIDOS</h2>
+            
+                <div class="swiper">
+
+                    <div class="swiper-pagination"></div>
+
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">img</div>
+                        <div class="swiper-slide">img</div>
+                        <div class="swiper-slide">img</div>
+                        <div class="swiper-slide">img</div>
+                        <div class="swiper-slide">img</div>
+                        <div class="swiper-slide">img</div>
+                    </div>
+
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+                </div>                                                     */ 
+
+
+
+
+
+/*Obs : Passo a passo Carrossel
+
+Caminho: caminho para criação do carrossel,para várias etapas(www.swiperjs.com
+* - importar um plugin que já vai fornecer para nós esse carrossel,
+* - clicar no botão “Get started" -> Use Swiper from CDN
+* - então na esquerda eu vou em “Use swiper from CDN”
+* - Coloar o código acima do “styles.css" no index na zona da head
+                    <link
+                    rel="stylesheet"
+                    href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+
+* - Colocar <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    no final do body     
+
+* - Copiar o sódigo que aparece em  "ADD Swiper HTML Layout" E colocar na index abaixo do titulo h2 do carrossel na index, 
+
+<!-- Slider main container -->
+<div class="swiper">
+<!-- Additional required wrapper -->
+<div class="swiper-wrapper">
+<!-- Slides -->
+<div class="swiper-slide">Slide 1</div>     OBS: alterar para incluir as imagens que iraõ aparecer no carrossel-> ((<div class="swiper-slide"><img src="img/ApacheKafka.svg" alt="Livro sobre apache Kafka"></div>))
+<div class="swiper-slide">Slide 2</div>
+<div class="swiper-slide">Slide 3</div>
+...
+</div>
+<!-- If we need pagination -->
+<div class="swiper-pagination"></div>
+
+<!-- If we need navigation buttons -->
+<div class="swiper-button-prev"></div>
+<div class="swiper-button-next"></div>
+
+<!-- If we need scrollbar -->
+<div class="swiper-scrollbar"></div>
+</div>
+     
+* - depois de colar o código no HTML e mudar de slide par aimg e por as imgens e as extenssões, ir para
+        API Documentation que leva-nos a documentação completa.
+        # Swiper Full HTML Layout
+        # Initialize Swiper
+        # Incluir essa contante exemplo , onde incluiremos pareametros importantes, Dentro você vai botar os parâmetros,
+        métodos a ver com esse swiper que também vai encontrar todos só valores que você precisa aqui dentro dessa documentação
+
+ Criar-->>>  Abaixo do primeiro scu«ript antes do body 
+
+        <scrip>    INcluir o código aqui e nexer nos parâmetros
+        const swiper = new Swiper('.swiper', {
+        speed: 400, (( O speed ele é a velocidade de troca de slide, não vamos usar ele porque eu acho que ele faz mais sentido se a nossa troca for automática, e ela não é ))
+        spaceBetween: 100, (( spaceBetween, assim como a sua tradução ele é o espaço entre eles. É o espaço entre cada slide. ))
+        });
+        </script> 
+             
+* - Visualização dos slides (fotos no carrossel) por vezes, usamos o que está no  Parameters / breakpoints
+        slidesPerView: 3, três slides por vez.
+
+        (((INF.	
+        Permite definir parâmetros diferentes para diferentes pontos de interrupção responsivos (tamanhos de tela). 
+        Nem todos os parâmetros podem ser alterados em breakpoints, apenas aqueles que não requerem layout e lógica diferentes,
+        como slidesPerView, slidesPerGroup, spaceBetween, grid.rows. Tais parâmetros gostam loope effectnão funcionam)))
+
+*- Arrumando o carrossel na folha de stylo-->  
+        .swiper-slide img{
+        width:100%;
+        }
+
+/*para rertirar as setas de vanço do display
+        .swiper-button-prev, .swiper-button-next {
+        display: none;
+        }*/
+
+/*  vamos a Pagination e copiar para o scrip segundo
+
+        pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',},       
+        });
+
+        .swiper-pagination {  Aqui precisaremos mexer na posição das bolinhas
+        position: initial;
+        margin: 0.5em;
+        }
+
+            
+*- Apagar o If we need scrollbar - 
+scrol que não queremos no carrossel
+<div class="swiper-scrollbar"></div> 
+
+*/
+
+/*Todas as novas edições apartir da tela de 1024px devem ser editadas aqui*/
+
+ @media screen and (min-width: 1024px) {
+
+    .carrossel__titulo{      
+        font-size: 26px;
+    }
+
+    .swiper-pagination{                  /*Mudamos a margem das bolinhasda paginação*/
+        margin: 2em 0 3em 0;
+    }
+  
+    .swiper{                             /*Mudamos o tamanho que aparece na tela do carrossel ( Ocarrossel foi importando do CDN*/
+        width: 60%;
+    }
+
+    .swiper-button-prev, 
+    .swiper-button-next{      /*Mudamos a visualização dos botões de ir e voltar do carrossel e posição*/
+
+        display: block;
+        top: 60%;
+    }
+
+    .card {
+        width:40%;
+        margin: 2em auto;  /*Mudamos a visualização do card, ele fica centralizado automaticamente e ajustados*/
+        
+    }
+
+
+ }
+
+
+
+ @media screen and (min-width: 1728px) {
+
+    .carrossel__container{            /*tranformamos o carrossel e o card dentro de uma div para serem apreesentados como flexbox*/
+        display: flex;
+        margin: 0em 20vw 3em 20vw;
+        align-items: center;   /*Importante colocarmos o elemento align-items, para alinhar os elementos que questão dentro da div do carrossel
+                                ou outro elemento que esteja fazendo parte da div
+                                */
+    }
+
+    .descrição__titulo{
+     font-size: 32px;
+    }
+
+
+    .swiper{
+        width: 50%;
+    }
+
+    .swiper-pagination{
+        position: initial;
+        margin: 0.2em;
+    }
+
+    .card{
+        width: 60%;
+        margin-left: 2em ;
+    
+        }
+
+     .descrição{
+        margin-right: 2em;
+     }   
+
+     .descrição__texto{ /*edição da class descrição__texto */
+        font-size: 16px;
+     } 
+
+     
+ }
